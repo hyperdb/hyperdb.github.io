@@ -1,10 +1,10 @@
 ---
 layout: page
-title: このサイトについて
+title: about
 permalink: /about/
 ---
 
-# このサイトについて
+## このサイトについて
 
 ドメインを見ればお分かりだと思いますが、GitHub Pagesを使って作成されたサイトです。
 ジェネレーターにはJekyllを使っています。
