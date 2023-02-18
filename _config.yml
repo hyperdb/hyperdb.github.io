@@ -21,13 +21,11 @@
 title: hyperdb.github.io
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-    神奈川県横浜市在住。
-    プログラマ。
-    社内システムの開発と保守を担当しています。
-    --
-    Lives and works in Yokohama, Kanagawa Prefecture, Japan.
-    Programmer.
-    Responsible for development and maintenance of in-house systems.
+    Be polite,
+    be kind to others,
+    enjoy your hobbies,
+    and master your interests.
+    -- quoted from: 「ちょい釣りダンディ」("A little fishing dandy")
 baseurl: '' # the subpath of your site, e.g. /blog
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: hyperdb
