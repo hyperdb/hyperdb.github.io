@@ -1,18 +1,19 @@
 ---
 layout: page
-title: About
+title: このサイトについて
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# このサイトについて
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+ドメインを見ればお分かりだと思いますが、GitHub Pagesを使って作成されたサイトです。
+ジェネレーターにはJekyllを使っています。
+このサイトでは、サイト自身の更新情報やGitHub上での活動の記録や他で運用しているサイトの紹介などを投稿していきたいと考えています。
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## プロフィール
 
-
-[jekyll-organization]: https://github.com/jekyll
+神奈川県横浜市在住。
+プログラマ。
+社内システムの開発・保守をやっています。
+普段使っているのはCodeIgniter、MySQL、jQueryなど。
+最近はNode、Python、Goなどを使っています。
