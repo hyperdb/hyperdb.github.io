@@ -17,3 +17,10 @@ permalink: /about/
 社内システムの開発・保守をやっています。
 普段使っているのはCodeIgniter、MySQL、jQueryなど。
 最近はNode、Python、Goなどを使っています。
+
+## リンク
+
+- [Twitter](https://twitter.com/hyperdb)
+- [GitHub](https://github.com/hyperdb)
+- [Zenn](https://zenn.dev/hyperdb)
+- [Qiita](https://qiita.com/hyperdb)（ちゃんと使わないと😅）
