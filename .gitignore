@@ -6,3 +6,4 @@ vendor
 
 .history
 .vscode
+Gemfile.lock
