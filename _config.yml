@@ -19,20 +19,27 @@
 # in the templates via {{ site.myvariable }}.
 
 title: hyperdb.github.io
-email:
+email: ''
 description: >- # this means to ignore newlines until "baseurl:"
     Be polite,
     be kind to others,
     enjoy your hobbies,
     and master your interests.
     -- quoted from: 「ちょい釣りダンディ」("A little fishing dandy")
-baseurl: '' # the subpath of your site, e.g. /blog
-url: '' # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '/' # the subpath of your site, e.g. /blog
+url: 'https://hyperdb.github.io' # the base hostname & protocol for your site, e.g. http://example.com
+
+lang: ja
+#favicon: /assets/img/favicon.png
+timezone: Asia/Tokyo
+
 twitter_username: hyperdb
 github_username: hyperdb
 
 # Build settings
 theme: minima
+minima:
+    date_format: '%Y.%m.%d'
 plugins:
     - jekyll-feed
 # Exclude from processing.
