@@ -24,3 +24,22 @@ permalink: /about/
 - [GitHub](https://github.com/hyperdb)
 - [Zenn](https://zenn.dev/hyperdb)
 - [Qiita](https://qiita.com/hyperdb)（ちゃんと使わないと😅）
+
+## コメントをどうぞ
+
+<div class="giscus"></div>
+<script src="https://giscus.app/client.js"
+        data-repo="hyperdb/hyperdb.github.io"
+        data-repo-id="R_kgDOI_U_UQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOI_U_Uc4CUeLl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light_tritanopia"
+        data-lang="ja"
+        crossorigin="anonymous"
+        async>
+</script>
