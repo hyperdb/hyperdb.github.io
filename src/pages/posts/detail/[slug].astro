@@ -1,0 +1,207 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    return posts
+        .filter((post) => post.data.status === "publish")
+        .map((post) => ({
+            params: { slug: post.data.slug },
+        }));
+}
+
+const { slug } = Astro.params;
+
+// slugからpostを取得
+const posts = await getCollection("posts");
+const post = posts.find((p) => p.data.slug === slug);
+
+if (!post) {
+    return Astro.redirect("/404");
+}
+
+const { Content } = await render(post);
+---
+
+<Layout>
+    <main>
+        <article>
+            <header>
+                <h1>{post.data.title}</h1>
+                <div class="meta">
+                    <time datetime={post.data.created_at}>
+                        {
+                            new Date(post.data.created_at).toLocaleDateString(
+                                "ja-JP"
+                            )
+                        }
+                    </time>
+                    {
+                        post.data.category && (
+                            <span class="category">{post.data.category}</span>
+                        )
+                    }
+                    {
+                        post.data.tags && post.data.tags.length > 0 && (
+                            <div class="tags">
+                                {post.data.tags.map((tag) => (
+                                    <span class="tag">{tag}</span>
+                                ))}
+                            </div>
+                        )
+                    }
+                </div>
+            </header>
+            <div class="content">
+                <Content />
+            </div>
+            <footer>
+                <a href="/posts">投稿一覧に戻る</a>
+            </footer>
+        </article>
+    </main>
+</Layout>
+
+<style lang="scss">
+    // 変数定義
+    $max-width: 800px;
+    $primary-color: #333;
+    $secondary-color: #666;
+    $accent-color: #1976d2;
+    $border-color: #e0e0e0;
+    $bg-light: #f5f5f5;
+    $bg-category: #e3f2fd;
+    $border-radius: 8px;
+    $line-height: 1.8;
+
+    main {
+        max-width: $max-width;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    article {
+        background: white;
+        border-radius: $border-radius;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $border-color;
+
+            h1 {
+                margin: 0 0 1rem 0;
+                font-size: 2rem;
+                color: $primary-color;
+            }
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid $border-color;
+
+            a {
+                color: $accent-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .meta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        color: $secondary-color;
+        font-size: 0.9rem;
+    }
+
+    .category {
+        padding: 0.25rem 0.75rem;
+        background: $bg-category;
+        border-radius: 4px;
+        color: $accent-color;
+    }
+
+    .tags {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        padding: 0.25rem 0.5rem;
+        background: $bg-light;
+        border-radius: 4px;
+        font-size: 0.85rem;
+    }
+
+    .content {
+        line-height: $line-height;
+        color: $primary-color;
+
+        :global(h2) {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: $primary-color;
+        }
+
+        :global(h3) {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: $primary-color;
+        }
+
+        :global(p) {
+            margin-bottom: 1rem;
+        }
+
+        :global(code) {
+            background: $bg-light;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            font-size: 0.9em;
+        }
+
+        :global(pre) {
+            background: $bg-light;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+
+            code {
+                background: none;
+                padding: 0;
+            }
+        }
+
+        :global(a) {
+            color: $accent-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        :global(ul),
+        :global(ol) {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        :global(li) {
+            margin-bottom: 0.5rem;
+        }
+    }
+</style>

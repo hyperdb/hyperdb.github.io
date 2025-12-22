@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.16.6",
+    "sass": "^1.97.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.10",
+    "vite-tsconfig-paths": "^6.0.3"
+  }
+}

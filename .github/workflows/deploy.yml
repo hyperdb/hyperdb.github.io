@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+    # mainブランチにプッシュされた時に実行
+    push:
+        branches: ["main"]
+    # 手動実行も可能にする
+    workflow_dispatch:
+
+# GitHub Pagesへのデプロイに必要な権限を設定
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout your repository
+              uses: actions/checkout@v4
+
+            - name: Install, build, and upload your site
+              uses: withastro/action@v3
+              # ここで自動的に npm install & npm run build が行われます
