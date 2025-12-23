@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
+    "@playwright/test": "^1.57.0",
     "astro": "^5.16.6",
     "astro-icon": "^1.1.5",
+    "rehype-mermaid": "^3.0.0",
     "sass": "^1.97.1"
   },
   "devDependencies": {
