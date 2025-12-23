@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "hyperdb.github.io",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@iconify-json/mdi": "^1.2.3",
     "astro": "^5.16.6",
+    "astro-icon": "^1.1.5",
     "sass": "^1.97.1"
   },
   "devDependencies": {
