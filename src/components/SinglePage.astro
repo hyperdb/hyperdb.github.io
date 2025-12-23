@@ -1,0 +1,77 @@
+---
+import { getEntry, render } from "astro:content";
+
+interface Props {
+    slug: string;
+}
+
+const { slug } = Astro.props;
+
+const page = await getEntry("pages", slug);
+if (!page) throw new Error("Profile page not found");
+
+const { Content } = await render(page);
+---
+
+<article>
+    <div class="page-header">
+        <h1>{page.data.title}</h1>
+        <div class="page-meta">
+            <time datetime={page.data.created_at}>
+                {
+                    new Date(page.data.created_at).toLocaleDateString("ja-JP", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                    })
+                }
+            </time>
+            {
+                page.data.updated_at !== page.data.created_at && (
+                    <time datetime={page.data.updated_at}>
+                        (更新:{" "}
+                        {new Date(page.data.updated_at).toLocaleDateString(
+                            "ja-JP",
+                            {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                second: "2-digit",
+                            }
+                        )}
+                        )
+                    </time>
+                )
+            }
+        </div>
+    </div>
+    <div class="page-content">
+        <Content />
+    </div>
+</article>
+
+<style lang="scss">
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+    }
+    .page-meta {
+        font-size: 0.875rem;
+        color: #666;
+        time {
+            margin-left: 0.5rem;
+        }
+    }
+</style>
