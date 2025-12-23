@@ -1,7 +1,69 @@
 ---
-
+import { Icon } from "astro-icon/components";
+import Drawer from "@/components/ui/Drawer.astro";
 ---
 
-<footer>footer</footer>
+<footer>
+    <div class="col-left">
+        <span class="menu-icon" id="menuIcon">
+            <Icon name="mdi:menu-open" size="24" color="#ffffff" />
+        </span>
+    </div>
+    <div class="col-center">
+        <span class="copyright">Copyright &copy; hyperdb 2023</span>
+    </div>
+    <div class="col-right">
+        <Icon name="mdi:twitter" size="24" color="#1DA1F2" />
+        <Icon name="mdi:instagram" size="24" color="#E1306C" />
+        <Icon name="mdi:github" size="24" color="#ffffff" />
+    </div>
+</footer>
 
-<style></style>
+<Drawer />
+
+<script>
+    const menuIcon = document.getElementById("menuIcon");
+
+    menuIcon?.addEventListener("click", () => {
+        if ((window as any).openDrawer) {
+            (window as any).openDrawer();
+        }
+    });
+</script>
+
+<style lang="scss">
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        bottom: 0;
+        min-height: 4rem;
+        padding: 1rem 2rem;
+        background-color: #2d2d2d;
+
+        .col-center {
+            .copyright {
+                color: #ffffff;
+            }
+        }
+
+        .col-left {
+            .menu-icon {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                transition: opacity 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        .col-right {
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+</style>

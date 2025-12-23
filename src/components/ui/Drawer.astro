@@ -1,0 +1,149 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="drawer-overlay" id="drawerOverlay">
+    <aside class="drawer" id="drawer">
+        <div class="drawer-header">
+            <h2>メニュー</h2>
+            <button class="close-btn" id="closeDrawer">
+                <Icon name="mdi:close" size="24" />
+            </button>
+        </div>
+        <nav class="drawer-content">
+            <ul>
+                <li><a href="/">ホーム</a></li>
+                <li><a href="/posts">記事一覧</a></li>
+                <li><a href="#">カテゴリー</a></li>
+                <li><a href="#">タグ</a></li>
+                <li><a href="#">アーカイブ</a></li>
+                <li><a href="#">お気に入り</a></li>
+                <li><a href="#">設定</a></li>
+            </ul>
+        </nav>
+        <slot />
+    </aside>
+</div>
+
+<script>
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    const drawer = document.getElementById("drawer");
+    const closeDrawer = document.getElementById("closeDrawer");
+
+    // Drawerを開く関数をグローバルに公開
+    (window as any).openDrawer = () => {
+        drawerOverlay?.classList.add("active");
+    };
+
+    // Drawerを閉じる
+    const handleClose = () => {
+        drawerOverlay?.classList.remove("active");
+    };
+
+    closeDrawer?.addEventListener("click", handleClose);
+
+    // オーバーレイクリックで閉じる（Drawer内のクリックは除外）
+    drawerOverlay?.addEventListener("click", (e) => {
+        if (e.target === drawerOverlay) {
+            handleClose();
+        }
+    });
+</script>
+
+<style lang="scss">
+    .drawer-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+
+            .drawer {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #ffffff;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        padding: 0;
+        overflow-y: auto;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #f5f5f5;
+
+            h2 {
+                margin: 0;
+                font-size: 1.25rem;
+                color: #333;
+            }
+
+            .close-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.25rem;
+                display: flex;
+                align-items: center;
+                color: #666;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+
+        .drawer-content {
+            padding: 1rem;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    margin-bottom: 0.5rem;
+
+                    a {
+                        display: block;
+                        padding: 0.75rem 1rem;
+                        color: #333;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        transition: background-color 0.2s;
+
+                        &:hover {
+                            background-color: #f0f0f0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
