@@ -1,7 +1,7 @@
 ---
 slug: 1vXvY7
 title: 再構築しました
-category: 記事
+category: ブログ
 tags: []
 created_at: "2025-12-23T15:18:09+09:00"
 updated_at: "2025-12-23T15:18:09+09:00"

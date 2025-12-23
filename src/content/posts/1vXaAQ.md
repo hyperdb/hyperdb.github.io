@@ -5,7 +5,7 @@ category:
 tags: []
 created_at: "2023-02-26T00:00:00+09:00"
 updated_at: "2023-02-26T00:00:00+09:00"
-status: "publish"
+status: "draft"
 ---
 
 Aboutページにコメント欄を付けてみあました。
