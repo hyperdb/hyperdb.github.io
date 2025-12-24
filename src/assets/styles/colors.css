@@ -5,4 +5,13 @@
     --theme-color4: #535531;
     --theme-color5: #d2c3c9;
     --theme-color6: #f4eaec;
+
+    --color-background: #464646; /* ダークグレー */
+    --color-text: #faf9f6; /* オフホワイト */
+
+    --color-primary: #e3adc1;
+    --color-secondary: #bb797e;
+    --color-error: #a34339;
+    --color-success: #535531;
+    --color-warning: #d2c3c9;
 }

@@ -1,7 +1,9 @@
 ---
 import "@/assets/styles/colors.css";
+import "@/assets/styles/main.css";
 import Footer from "@/components/ui/Footer.astro";
 import Header from "@/components/ui/Header.astro";
+import "@picocss/pico/css/pico.min.css";
 ---
 
 <!doctype html>
@@ -28,12 +30,6 @@ import Header from "@/components/ui/Header.astro";
     html,
     body {
         margin: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    main {
-        min-height: 90vh;
-        padding: 1rem;
+        padding: 0;
     }
 </style>

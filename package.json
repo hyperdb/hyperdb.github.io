@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
+    "@picocss/pico": "^2.1.1",
     "@playwright/test": "^1.57.0",
     "astro": "^5.16.6",
     "astro-icon": "^1.1.5",
