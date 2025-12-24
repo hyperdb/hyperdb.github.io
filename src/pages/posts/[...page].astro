@@ -26,15 +26,18 @@ const { page } = Astro.props;
 ---
 
 <Layout>
-    <main>
+    <div class="page-header">
         <h1>投稿一覧</h1>
+        <p>全{page.total}件の投稿</p>
+    </div>
 
-        <ul class="post-list">
-            {
-                page.data.map((post) => (
-                    <li class="post-item">
-                        <a href={`/posts/detail/${post.data.slug}`}>
-                            <h2>{post.data.title}</h2>
+    <ul class="post-list">
+        {
+            page.data.map((post) => (
+                <li class="post-item">
+                    <a href={`/posts/detail/${post.data.slug}`}>
+                        <h2>{post.data.title}</h2>
+                        <div class="post-meta">
                             <time
                                 datetime={new Date(
                                     post.data.created_at
@@ -44,99 +47,56 @@ const { page } = Astro.props;
                                     post.data.created_at
                                 ).toLocaleDateString("ja-JP")}
                             </time>
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
+                            {post.data.category && (
+                                <span class="category">
+                                    {post.data.category}
+                                </span>
+                            )}
+                        </div>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
 
-        <nav class="pagination">
-            {page.url.prev && <a href={page.url.prev}>← 前のページ</a>}
-            <span class="page-info">
-                ページ {page.currentPage} / {page.lastPage}
-            </span>
-            {page.url.next && <a href={page.url.next}>次のページ →</a>}
-        </nav>
-    </main>
+    <nav class="pagination">
+        {page.url.prev && <a href={page.url.prev}>← 前のページ</a>}
+        <span class="page-info">
+            ページ {page.currentPage} / {page.lastPage}
+        </span>
+        {page.url.next && <a href={page.url.next}>次のページ →</a>}
+    </nav>
+
+    <div class="post-footer">
+        <a href="/">トップに戻る</a>
+    </div>
 </Layout>
 
 <style lang="scss">
-    // 変数定義
-    $max-width: 800px;
-    $primary-color: #333;
-    $secondary-color: #666;
-    $border-color: #ddd;
-    $hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    $border-radius: 8px;
-    $transition-duration: 0.2s;
-
-    main {
-        max-width: $max-width;
-        margin: 0 auto;
-        padding: 2rem;
-
-        h1 {
-            margin-bottom: 2rem;
-        }
+    .page-header p {
+        font-size: 1rem;
+        color: var(--theme-color5);
+        margin-top: 0.5rem;
     }
 
-    .post-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 2rem 0;
-    }
-
-    .post-item {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        transition: box-shadow $transition-duration;
-
-        &:hover {
-            box-shadow: $hover-shadow;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        h2 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.5rem;
-            color: $primary-color;
-        }
-
-        time {
-            color: $secondary-color;
-            font-size: 0.9rem;
-        }
-    }
-
-    .pagination {
+    .post-meta {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
         gap: 1rem;
-
-        a {
-            padding: 0.5rem 1rem;
-            background-color: #f0f0f0;
-            text-decoration: none;
-            color: $primary-color;
-            border-radius: 4px;
-            transition: background-color $transition-duration;
-
-            &:hover {
-                background-color: #e0e0e0;
-            }
-        }
+        align-items: center;
+        margin-top: 0.5rem;
     }
 
-    .page-info {
-        color: $secondary-color;
+    .post-meta .category {
+        background-color: var(--theme-color4);
+        color: var(--color-text);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.85rem;
+    }
+
+    ul.post-list {
+        li {
+            list-style: none;
+        }
     }
 </style>

@@ -1,26 +1,94 @@
 ---
+import { getCollection } from "astro:content";
 
+const posts = await getCollection("posts");
+const recentPosts = posts
+    .filter((post) => post.data.status === "publish")
+    .sort(
+        (a, b) =>
+            new Date(b.data.created_at).getTime() -
+            new Date(a.data.created_at).getTime()
+    )
+    .slice(0, 5);
 ---
 
 <article>
     <div class="page-header">
         <h1>Welcome to hyperdb.github.io</h1>
+        <p>リポジトリの更新情報を綴るブログ</p>
+    </div>
+
+    <div class="page-content">
+        <h2>最新の投稿</h2>
+        <ul class="post-list">
+            {
+                recentPosts.map((post) => (
+                    <li class="post-item">
+                        <a href={`/posts/detail/${post.data.slug}`}>
+                            <h3>{post.data.title}</h3>
+                            <time
+                                datetime={new Date(
+                                    post.data.created_at
+                                ).toISOString()}
+                            >
+                                {new Date(
+                                    post.data.created_at
+                                ).toLocaleDateString("ja-JP")}
+                            </time>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div class="view-all">
+            <a href="/posts" class="view-all-link">すべての投稿を見る →</a>
+        </div>
     </div>
 </article>
 
 <style lang="scss">
-    .page-header {
+    .page-header p {
+        font-size: 0.9rem;
+        color: var(--theme-color5);
+        margin-top: 0.25rem;
+    }
+
+    .post-item h3 {
+        margin: 0 0 0.5rem 0;
+        color: var(--theme-color1);
+        font-size: 1.1rem;
+        border: none;
+        padding: 0;
+    }
+
+    .view-all {
         text-align: center;
-        margin: 4rem 0;
+        margin-top: 2rem;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+    .view-all-link {
+        color: var(--theme-color1);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--theme-color1);
+        border-radius: 8px;
+        display: inline-block;
+        transition:
+            background-color 0.3s,
+            color 0.3s;
+    }
 
-        p {
-            font-size: 1.25rem;
-            color: #555;
+    .view-all-link:hover {
+        background-color: var(--theme-color1);
+        color: var(--color-background);
+        text-decoration: none;
+    }
+
+    ul.post-list {
+        li {
+            list-style: none;
         }
     }
 </style>

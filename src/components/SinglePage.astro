@@ -53,25 +53,20 @@ const { Content } = await render(page);
     <div class="page-content">
         <Content />
     </div>
+    <div class="page-footer">
+        <a href="/">ホームに戻る</a>
+    </div>
 </article>
 
 <style lang="scss">
-    .page-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
+    article {
+        max-width: 900px;
+        margin: 0 auto;
     }
+
     .page-meta {
-        font-size: 0.875rem;
-        color: #666;
-        time {
-            margin-left: 0.5rem;
-        }
+        color: var(--theme-color5);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 </style>
