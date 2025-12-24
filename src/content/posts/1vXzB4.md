@@ -10,11 +10,12 @@ status: "publish"
 
 せっかくだから Mermaid も表示できるようになるといいかなと思って検索したら、ピッタリの記事を発見。ホントにありがたいですね。とりあえず記事の説明通りに進めたら、無事に表示できました。
 
--   [Astro5.5 からは Mermaid が簡単に使えるよ](https://zenn.dev/wagomu/articles/20250315_astro_mermaid)
+- [Astro5.5 からは Mermaid が簡単に使えるよ](https://zenn.dev/wagomu/articles/20250315_astro_mermaid)
 
 以下は Mermaid の公式サイトのシーケンスダイアグラムのサンプルです。
 
 ```mermaid
+%%{init:{'theme':'dark'}}%%
 sequenceDiagram
     Alice->>John: Hello John, how are you?
     John-->>Alice: Great!
