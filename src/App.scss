@@ -1,0 +1,36 @@
+article {
+    &.page-content {
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 1em;
+        }
+
+        p {
+            margin-bottom: 0.9em;
+            line-height: 1.85;
+
+            strong {
+                font-weight: 700;
+                border-bottom: 1px dotted #aaaaaa;
+                margin: 0 0.2em;
+            }
+        }
+
+        ul,
+        ol {
+            margin-left: 1.5em;
+            margin-bottom: 0.85em;
+            line-height: 1.65;
+
+            li {
+                margin-bottom: 0.5em;
+                line-height: 1.65;
+
+                &::marker {
+                    content: "✔️";
+                    margin-right: 0.3em;
+                }
+            }
+        }
+    }
+}

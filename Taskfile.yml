@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+vars:
+    GREETING: Hello, world!
+
+tasks:
+    default:
+        desc: Print a greeting message
+        cmds:
+            - echo "{{.GREETING}}"
+        silent: true
+
+    create:
+        desc: Create a new content file with the given name
+        cmds:
+            - node bin/createContent.mjs {{.CLI_ARGS}}
+        silent: true
+
+    publish:
+        desc: Publish the content file with the given name
+        cmds:
+            - node bin/publishContent.mjs ./src/contents/{{.CLI_ARGS}}.md
+        silent: true
+
+    update:
+        desc: Update the content file with the given name
+        cmds:
+            - node bin/updateContent.mjs ./src/contents/{{.CLI_ARGS}}.md
+        silent: true
+
+    json:
+        desc: Create JSON files for posts, pages, categories, and tags
+        cmds:
+            - node bin/createPostsJSON.mjs
+            - node bin/createPagesJSON.mjs
+            - node bin/createCategoryJSON.mjs
+            - node bin/createTagJSON.mjs
+        silent: true
