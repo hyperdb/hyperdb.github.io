@@ -33,11 +33,14 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_GITHUB_TOKEN: ${{ secrets.VITE_GITHUB_TOKEN }}
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           path: "./dist" # Viteのデフォルト出力フォルダ
 
       - name: Deploy to GitHub Pages
