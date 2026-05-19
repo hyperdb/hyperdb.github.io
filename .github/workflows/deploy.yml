@@ -38,6 +38,7 @@ jobs:
       - name: Build project
         env:
           VITE_GITHUB_TOKEN: ${{ secrets.VITE_GITHUB_TOKEN }}
+          VITE_GA_TAG: ${{ secrets.VITE_GA_TAG }}
         run: npm run build
 
       - name: Add SPA fallback page
