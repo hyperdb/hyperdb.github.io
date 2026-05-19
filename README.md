@@ -4,10 +4,20 @@
 
 ## 技術スタック
 
-- Vite 8
-- React 19
-- TypeScript 6
-- Chakra UI 3
+- vite
+- react
+- typescript
+- eslint 10
+- chakra-ui
+- wouter
+- react-icons
+- react-markdown
+- remark-gfm
+- sqids
+- sass-embedded
+- mermaid
+- highlight.js
+- biome
 
 ## ページ構成
 
@@ -17,3 +27,9 @@
 - `/profile`: プロフィールページ
 - `/blog`: ブログ一覧
     - `/posts/:id`: ブログ詳細
+
+## ライセンス
+
+本リポジトリのソースコードのライセンスは**MIT**ですが、サイトのコンテンツの内容や画像などのリソースについては**CC BY-NC-ND 4.0**を利用します。また、配布元より`COMMERCIAL LISENSE`を取得している素材に関しては**配布元のライセンス**に準じます。
+
+※現在は`COMMERCIAL LISENSE`を取得して使用している素材はありません。
