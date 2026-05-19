@@ -27,5 +27,4 @@ dist-ssr
 # ------------------------------
 .vscode/*
 .env
-package-lock.json
 
