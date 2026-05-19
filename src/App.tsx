@@ -1,5 +1,6 @@
 import { Route, Switch } from "wouter";
 import Blog from "@/pages/Blog";
+import BlogCategories from "@/pages/BlogCategories";
 import BlogDetail from "@/pages/BlogDetail";
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
@@ -8,6 +9,9 @@ import "./App.scss";
 function App() {
 	return (
 		<Switch>
+			<Route path="/blog/categories/:categoryId">
+				{(params) => <BlogCategories category_id={params.categoryId} />}
+			</Route>
 			<Route path="/blog/:postId">
 				{(params) => <BlogDetail post_id={params.postId} />}
 			</Route>
