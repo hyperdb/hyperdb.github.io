@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  base: '/hyperdb.github.io/',
+  base: '/',
   define: {
     'process.env': process.env, // 必要に応じて追加
   },
