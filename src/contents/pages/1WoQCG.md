@@ -11,9 +11,11 @@ status: published
 
 # ようこそ
 
-このページは**GitHub Page**を利用したブログです。以下の技術で構成されています。
+このサイトは**GitHub Page**を利用したGitHubユーザー**hyperdb**のブログサイトです。以下の技術で構成されています。
 
 - Vite
 - React
 - TypeScript
 - Chakra UI
+
+なお、サイト内のページへは左上のアイコンをクリックすると表示されるサイドメニューで移動できます。
