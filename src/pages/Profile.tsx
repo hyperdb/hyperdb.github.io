@@ -6,7 +6,7 @@ import { PAGE_ID, SITE_INFO } from "@/lib/constants";
 
 const Profile = () => {
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle="Profile">
 			<PageContent pageId={PAGE_ID.PROFILE}>
 				<ImageBlock
 					src={"https://s3.hyperdb.cc/hyperdb-commons/favicon-hyperdb.ico"}

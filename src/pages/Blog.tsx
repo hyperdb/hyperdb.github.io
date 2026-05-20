@@ -5,7 +5,7 @@ import { PAGE_ID } from "@/lib/constants";
 
 const Blog = () => {
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle="ブログ一覧">
 			<PageContent pageId={PAGE_ID.BLOG}>
 				<BlogList />
 			</PageContent>

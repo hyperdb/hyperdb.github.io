@@ -15,7 +15,7 @@ const PageDetail = (props: Props) => {
 	}
 
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle={postData.title}>
 			<PostContent pageId={props.post_id} displayDate={true} />
 		</DefaultLayout>
 	);

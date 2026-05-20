@@ -15,10 +15,10 @@ const BlogTags = (props: Props) => {
 		return null;
 	}
 
-	// const title = `タグ別記事一覧: ${tag.name}`;
+	const title = `タグ別記事一覧: ${tag.name}`;
 
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle={title}>
 			<Heading as="h1" size="xl" mb={4}>
 				🔖タグ別記事一覧:
 				<Tag.Root size={"xl"} mx={4} variant={"outline"} bg={"bg.success"}>

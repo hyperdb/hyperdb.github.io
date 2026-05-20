@@ -4,7 +4,7 @@ import { PAGE_ID } from "@/lib/constants";
 
 const Home = () => {
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle="Home">
 			<PageContent pageId={PAGE_ID.HOME} />
 		</DefaultLayout>
 	);

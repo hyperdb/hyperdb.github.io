@@ -7,7 +7,7 @@ export const PAGE_ID = {
 export const SITE_INFO = {
   TITLE: "hyperdb.github.io",
   SUB_TITLE: "老いに抗うプログラマの個人サイト",
-  DESCRIPTION: "個人事業主として横浜で活動するプログラマの個人サイトです。",
+  DESCRIPTION: "個人事業主として横浜で活動するプログラマの個人サイトです。GitHub専用のブログとして公開しました。",
   KEYWORDS: "プログラマ, 横浜, 個人サイト, 技術ブログ",
   URL: "https://hyperdb.github.io",
   AUTHOR: "hyperdb",

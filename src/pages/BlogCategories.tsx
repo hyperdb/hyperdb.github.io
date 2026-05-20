@@ -14,10 +14,11 @@ const BlogCategories = (props: Props) => {
 	if (!category) {
 		return null;
 	}
-	// const title = `カテゴリー別記事一覧: ${category.name}`;
+
+	const title = `カテゴリー別記事一覧: ${category.name}`;
 
 	return (
-		<DefaultLayout>
+		<DefaultLayout pageTitle={title}>
 			<Heading as="h1" size="xl" mb={4}>
 				🔖カテゴリー別記事一覧:
 				<Tag.Root size={"xl"} mx={4} bg={"bg.emphasized"}>
