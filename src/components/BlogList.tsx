@@ -12,7 +12,7 @@ const BlogList = () => {
 		(a, b) => (a.created_at > b.created_at ? -1 : 1), // 投稿日時の降順でソート
 	);
 	// 1ページあたりの投稿数を設定
-	const postPerPage = 8;
+	const postPerPage = 5;
 	// 現在のページ番号と表示する投稿の状態を管理
 	const [currentPage, setCurrentPage] = useState(1);
 	// 現在のページに表示する投稿を計算して状態に設定
@@ -23,7 +23,7 @@ const BlogList = () => {
 	return (
 		<Container>
 			{/* ページネーションコンポーネントを表示 */}
-			<Center mb={8}>
+			<Center mb={4}>
 				<BlogPageNav
 					maxPosts={posts.length}
 					postsPerPage={postPerPage}

@@ -18,30 +18,27 @@ const BlogListItem = (props: Props) => {
 
 	return (
 		<Flex
-			w={{ base: "100%", md: "48%" }}
-			height={{ base: "4.5em", md: "6em" }}
+			w={"100%"}
+			height={{ base: "4.2em", md: "4.5em" }}
 			flexDirection={"column"}
 			justifyContent={"space-between"}
+			align={"center"}
 			borderWidth={1}
 			borderRadius={8}
 			p={2}
 			mx={{ base: 0, md: 1 }}
 			my={1}
 			_hover={{ bg: { base: "gray.200", _dark: "gray.700" } }}
+			onClick={() => onClickHandler(props.postData.id)}
+			cursor={"pointer"}
 		>
 			{/* ブログタイトル */}
-			<Text
-				textStyle={{ base: "md", md: "md" }}
-				onClick={() => onClickHandler(props.postData.id)}
-				cursor={"pointer"}
-				mb={2}
-			>
+			<Text as={"h2"} textStyle={{ base: "md", md: "md" }} mb={2}>
 				{props.postData.title}
 			</Text>
 			{/* 投稿日と更新日を表示 */}
 			<Flex
-				gap={1}
-				flexDirection={{ base: "row", md: "column" }}
+				gap={4}
 				justifyContent={{ base: "flex-end", md: "flex-start" }}
 				alignItems={{ base: "flex-end", md: "flex-end" }}
 			>
