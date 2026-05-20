@@ -8,7 +8,4 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   base: '/',
-  define: {
-    'process.env': process.env, // 必要に応じて追加
-  },
 });
