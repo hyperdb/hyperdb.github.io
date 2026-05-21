@@ -2,7 +2,7 @@
     "WdPu0NLwrhaX6Bd5ivLs": {
         "name": "サイト更新",
         "hash": "WdPu0NLwrhaX6Bd5ivLs",
-        "count": 2,
+        "count": 3,
         "content_list": [
             {
                 "title": "何度目かの更新",
@@ -12,6 +12,11 @@
             {
                 "title": "コントリビューションマップ",
                 "id": "1WpbSc",
+                "content_type": "post"
+            },
+            {
+                "title": "無事に公開",
+                "id": "1WpVtr",
                 "content_type": "post"
             }
         ]
