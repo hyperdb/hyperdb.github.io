@@ -15,6 +15,10 @@ export const SITE_INFO = {
   GITHUB_USERNAME: "hyperdb",
 };
 
+export const SITE_SETTINGS = {
+  COMMON_STORAGE: "https://pub-ab3443ea58a646148b224bbe20162a44.r2.dev"
+}
+
 export type DrawerMenuItemType = {
   title: string;
   description: string;
